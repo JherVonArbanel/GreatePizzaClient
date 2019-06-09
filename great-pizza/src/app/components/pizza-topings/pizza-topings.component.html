@@ -1,0 +1,17 @@
+<h4>Topings </h4>  
+<div class="row" *ngFor="let item of topings">
+  <toping class="col-12" [toping]="item" (onDeleteClick)="onDeleteClicked($event)"></toping>
+</div>
+<div class="row">
+  <div class="col-8 select-topings">
+    <select *ngIf="addClicked" id="topings" class="custom-select">
+      <option *ngFor="let toping of topingsAvailable;" [value]="toping.id">
+        {{toping.name}}
+      </option>
+    </select>
+  </div>
+  <div class="col-4">
+    <button *ngIf="!addClicked" type="button" class="btn btn-primary" (click)="addToping()">Add</button>
+    <button *ngIf="addClicked" type="button" class="btn btn-primary" (click)="saveToping()">Save</button>
+  </div>
+</div>
